@@ -1,0 +1,6 @@
+Click events werden nach einem Punkt definiert
+zb @click.right
+wird nur getriggert wen rechts click benutzt wird
+
+we,, wir ein bereich ausschließn möchten
+.self benutzen
