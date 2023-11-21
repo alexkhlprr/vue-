@@ -26,3 +26,13 @@ export default {
     props: ["header"],
 }
 </script>
+
+THEN WE CAN USE IT AS NORMAL IN TEMPLATE
+<template>
+    <div class="backdrop">
+        <div class="modal">
+            <h1>{{ header }}</h1> !!!!!!!!!!!!
+            <p>modal content</p>
+        </div>
+    </div>
+</template>
