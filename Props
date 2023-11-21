@@ -1,0 +1,11 @@
+We can pass props from a parent component to a child component.
+
+Why would we do this?
+
+We can make components more reusable. More dynamic.
+If we have multiple data that is the same. We have only define that data in one sigle place!
+
+For example if we use user Data multiple times in out App
+We can just define it only one time in our parent coponent and pass it with props on to the child components
+
+We can pass a tag that we definined into multiple components if we define it first on global
