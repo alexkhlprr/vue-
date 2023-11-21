@@ -6,6 +6,23 @@ We can make components more reusable. More dynamic.
 If we have multiple data that is the same. We have only define that data in one sigle place!
 
 For example if we use user Data multiple times in out App
-We can just define it only one time in our parent coponent and pass it with props on to the child components
+We can just define it only one time in our parent coponent and pass it with props on to the child components.
+
+Its also named the "SINGLE SOURCE OF TRUTH".
+
 
 We can pass a tag that we definined into multiple components if we define it first on global
+
+HOW TO DEFINE?
+
+In app.vue
+ <myModal header="Sign up for our Giveaway!"/>
+
+and how we use it in other component?
+Use the script tat and then props
+
+<script>
+export default {
+    props: ["header"],
+}
+</script>
