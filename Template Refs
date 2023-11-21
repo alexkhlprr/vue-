@@ -1,0 +1,25 @@
+Template Ref
+-handle on a Dom Element
+grap elemenet and manipulate
+
+refrence to a dom elemen inside a variable 
+
+Exaple we astablick a connection reffrence between a button and an input field throuh pur ref element
+
+<input type="text" ref="name">
+<button @click="handleClick">click me</button>
+
+ methods: {
+    handleClick() {
+      console.log(this.$refs.name)
+    }
+  }
+
+
+
+
+
+Side notes:
+
+add a class JS
+this.$refs.name.classList.add("active")
