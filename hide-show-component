@@ -1,0 +1,45 @@
+Wir schrieben ein Programm um einen child component komplett destroyed aus der DOM.
+
+1. Zuerset setzen wir ein v-if directive in den div ein von dem Component mit der parameter 
+
+<div v-if="showmyModal">
+    <myModal :header="header" :text="text" theme="sale"/>
+</div>
+
+2. Definition von dem boolean im data Object
+showmyModal wird der wert false gelichgesetzt und ist per default ausgeblendet
+ data() {
+      return {
+        title: "My first Vue App",
+        header: "Sign up for our Giveaway!",
+        text: "muhaaaaaaaaa",
+        showmyModal: false // <-----------
+    }
+
+3. Erstelung von Button und click Event (event listener)
+  Methode wird reingeschriben und wird getriggert
+  <button @click="toggleModal" >open modal</button>
+
+3. Definition von der Merhode
+methods: {
+    toggleModal() {
+      this.showmyModal = !this.showmyModal // setzen von dem boolean auf den gegenwertigen Wert (CLICK TRIGGERT)
+    }
+  }
+
+SCHLISSEn von dem Component mit der Hilfe von CUSTOM EVENTS
+
+custom events können aus einem child component gefuert werden und ein parent component kann den aufnehmen
+wir könenne ein custom event wie ein clickevent erstellen dem zugehört wird
+
+als erstes müssen wir den event emiten
+definierung ein einr Metode
+methods: {
+        closeModal(){
+            this.$emit('close')  //$EMIT NAME IST DER ARGUMENT DEN WE EMITEN WOLLEN definiton
+        }
+    }
+
+JETZT schrieben wir es in die paent component rein und übbergeben die methodede die getriggert werden soll in unserem fall die gleiche um den boolean umzudrehen
+
+myModal :header="header" :text="text" theme="sale" @close="toggleModal"/>
