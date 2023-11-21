@@ -1,0 +1,9 @@
+So we learnded that we have our html three
+
+Css scopes works as in divs
+
+verything that we define in our parent id will be handelt to the child components
+
+if you define css in parent componets it it all the handelt to the other unless you use the scoped variable in the style tag
+
+so in components always use scoped
