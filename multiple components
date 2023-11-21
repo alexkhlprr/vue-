@@ -1,1 +1,25 @@
 Multiple Components
+
+component Three
+App.vue root component - top structure mountet to the DOM alle other components will be nested inside
+
+  Header.vue
+  Article.vue (PARENT COMPONENT)- there also can be components be nested inside parent
+    Content.vue (CHILD COMPONENT)
+    Com,ents.vue(CHILD COMPONENT)
+  Footer.vue
+
+
+How do we use the components in other components?
+
+we importing themfrom our component folder ito our root component
+
+import myModal from './components/myModal.vue'
+
+we define them also om our script tag under export default
+
+components:{
+    myModal,
+  },
+
+we also plac the tag in the template
