@@ -16,10 +16,12 @@ We can pass a tag that we definined into multiple components if we define it fir
 HOW TO DEFINE?
 
 In app.vue
- <myModal header="Sign up for our Giveaway!"/>
+ <myModal header="Sign up for our Giveaway!"/>  IMPORTANT DEFINE ONLY IN THE COMPOMENT YOU WANT TO USE IT
 
 and how we use it in other component?
 Use the script tat and then props
+
+In myModal.vue
 
 <script>
 export default {
