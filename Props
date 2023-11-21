@@ -17,6 +17,10 @@ HOW TO DEFINE?
 
 In app.vue
  <myModal header="Sign up for our Giveaway!"/>  IMPORTANT DEFINE ONLY IN THE COMPOMENT YOU WANT TO USE IT
+IMPORTANT YOU CAN ONLY PASS STRINGS THIS WAY
+
+TO PASS NUMBERS,ARRAY, DATA WE NEED TO BIND LIKE THIS v-bind or :
+<myModal :header=["haus",4,2,3,"mau"]/> 
 
 and how we use it in other component?
 Use the script tat and then props
@@ -25,7 +29,7 @@ In myModal.vue
 
 <script>
 export default {
-    props: ["header"],
+    props: ["header","text","mamm"] PASSED AS A ARRAY
 }
 </script>
 
@@ -38,3 +42,10 @@ THEN WE CAN USE IT AS NORMAL IN TEMPLATE
         </div>
     </div>
 </template>
+
+PASSING DATA AS PROPT
+1. Makes them more reusable
+2. customizeable
+3. singe source of truth
+
+
