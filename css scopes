@@ -7,3 +7,6 @@ verything that we define in our parent id will be handelt to the child component
 if you define css in parent componets it it all the handelt to the other unless you use the scoped variable in the style tag
 
 so in components always use scoped
+
+
+you can also make a global style and import it into your main.js file
