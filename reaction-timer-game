@@ -1,0 +1,53 @@
+create a button to start a new game
+-Keep track if the user is currently playing or not
+-Start a timer for a random amout of time
+
+1. create a button play with a method start inside of it
+
+<button @click="start">  play </button>
+
+2. declare a method start
+
+methods: {
+  start(){
+    this.delay = 2000 + Math.ramdom() * 5000 // Eine radnom Zahl zwischen 2000 & 7000 wird generiert
+    this.isPlaying = true                    // die variable in data isPlaying bekommt den boolean true zugwewiesen 
+  }
+}
+
+3. declare components -> data  -> isPlaying and delay
+
+components: {
+  data(){
+    isPlaying: false,  //default wert
+    delay: null,  //default wert
+  }
+}
+
+>>>>>>MYBLOCK.vue<<<<<<<<   //Der block der gemounted wird und nach dem Delay erscheint
+
+1. Templayte Einrichtugung und Style von Block (selbst erklärend)
+
+2. Taking in the Prop property of the dely
+
+props: ["delay"]
+
+3. Import block Component in parent component App
+
+import myBlock from "./components/myBlock.vue"
+
+4. Add components: { Block }, und füge block im Template von App hinzu
+
+<Block/> // Block wird angezeigt wir wollen aber eine Bedingung schaffen das wenn ifPlaying true is der Block wird angeigt
+dementsprechen fügen wir eine v-if="" directive hinzu
+<Block v-if="isPLaying"/ >
+
+5. delay prop binden um ein delay zu erzäugen
+
+<Block v-if="isPLaying" :delay="delay"/ >
+
+6. button disaybled machen solange gespielt wird
+
+:disabled="isPLaying"
+
+>>>>>>LIFECYCLE HOOKS<<<<<<<< 
