@@ -51,3 +51,81 @@ dementsprechen fügen wir eine v-if="" directive hinzu
 :disabled="isPLaying"
 
 >>>>>>LIFECYCLE HOOKS<<<<<<<< 
+
+1. In block difinieren wir die Data propertie 
+
+showBlock= false // diese dint dazu das der Block per default nicht gerendert wird sondern erst wenn der button gedrückt wird und der timer(delay) vorbei ist
+
+2. deswegen im div bei template noch eine bedingun hinzufügen
+
+<div class="block" v-if="showBlock">
+
+3. Definition von delay nachfdem der block gemounted wurde (mounted() HOOK)
+
+mounted(){
+setTimeout(() => {
+
+  thisTimeout = true         // die function => wird gefeuert wenn this.delay durch ist die funtion lässt den block erscheinden indem showBlock true ist und die 
+                              v-if im block getriggert wird
+}, this.delay)
+}, 
+
+>>>>>>BLOCK REEACTING AFTER UPDATED<<<<<<<< 
+
+We want to measure the time betweeen the block apear and the user clicking it
+
+
+in mounted fügen wir erstmal die startTimer() methode hinzu damit die nach dem block erscheinen gefuert wird 
+
+mounted(){
+        console.log('component mounted')
+        setTimeout(() => {
+            this.showBlock = true
+            this.startTimer()        <...................
+        }, this.delay)
+    },
+
+1. We need 2 methods 
+ Start timer  
+  Stop timer
+
+2. Deklaration von data propeties
+
+timer: null,  // wird benötigt um den timer anzuhalten und der propertie reaction time 10 + milisekden hinzuzufügen
+reactionTime: 0 // die reaction Zeit die am ende ausgegeben wird
+
+
+
+3. Start timer & Stop timer
+
+startTimer(){
+  this.timer = setInterval(() => {
+     this.reactionTIme += 10  
+  }, 10 ) // function runs every 10 miliseconds so the reaction times gets increased +10 every milisecond
+}
+
+stopTimer(){
+  clearInterval(this.timer)  // timer wird auf null gesetzt so wird der timer resetet und stopt
+}
+
+4. Click event hinzufügen zum button um die stopTimer zu triggern
+
+ <div class="block" v-if="showBlock" @click="stopTimer"> 
+
+
+
+>>>>>>BSHOW REACTION TIME TO THE USER<<<<<<<< 
+
+It will be shown in the myRults.vue component and will be nested in the App.vue 
+
+SO we need to pass the reactionTime to the app and the to the rults
+
+We do this by emiting the custom events by the block component EMIT KEy word
+
+1. When we stop the timer we want to emit the event
+
+stopTimer(){
+            clearInterval(this.timer)
+            this.$emit("end",this.reactionTime) //declare a name and pass the data
+        }
+
